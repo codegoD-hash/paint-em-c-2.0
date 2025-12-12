@@ -19,19 +19,55 @@ void desenharTudo();
 void lerEntrada();
 void gotoxy(int cx, int cy);
 void esconderCursor();
+void menuInicial(); // <--- ADICIONADO: Prototipo do Menu
 
 int main() {
-    iniciar();
-    esconderCursor();
+    esconderCursor(); // Esconde o cursor piscante do Windows
+    
+    menuInicial();    // <--- ADICIONADO: Chama o menu antes de tudo
+    
+    iniciar();        // Inicia as variaveis do seu codigo
 
     while (1) {
         desenharTudo();
         lerEntrada();
-        Sleep(30); // pequeno descanso
+        
     }
 
     return 0;
 }
+
+
+void menuInicial() {
+    system("cls");
+
+    printf("   +------------------------------------------+\n");
+    printf("   |              _        _                   |\n");
+    printf("   |             (_)      | |                  |\n");
+    printf("   |   _ __   __ _ _ _ __ | | _                |\n");
+    printf("   |  | '_ \\/ _` | | '_ \\| __|               |\n");
+    printf("   |  | |_) | (_| | | | | | | _                |\n");
+    printf("   |  | .__/ \\__,_|_|_| |_|\\__|               |\n");
+    printf("   |  | |                                     |\n");
+    printf("   |  |_|                                     |\n");
+    printf("   +------------------------------------------+\n\n");
+
+    printf("                    [  P A I N T  ]\n\n");
+
+    printf("   +------------------------------------------+\n");
+    printf("   |   WASD -> mover cursor                   |\n");
+    printf("   |   Espaco -> desenhar                     |\n");
+    printf("   |   M -> trocar pincel                     |\n");
+    printf("   |   B -> borracha                          |\n");
+    printf("   +------------------------------------------+\n\n");
+
+    printf("     >> Pressione qualquer tecla para iniciar... <<");
+
+    getch();
+    system("cls");
+}
+
+
 
 void iniciar() {
     // Começa no centro
@@ -81,7 +117,8 @@ void desenharTudo() {
         putchar('\n');
     }
 
-    printf("\nModo: %s", desenhando ? "Desenhando" : "Movendo");
+    printf("\nModo: %s     ", desenhando ? "Desenhando" : "Movendo");
+
 }
 //funcao para ler a entrada do teclado
 void lerEntrada() {
