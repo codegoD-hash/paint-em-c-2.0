@@ -19,19 +19,17 @@ void desenharTudo();
 void lerEntrada();
 void gotoxy(int cx, int cy);
 void esconderCursor();
-void menuInicial(); // <--- ADICIONADO: Prototipo do Menu
+void menuInicial(); 
 
 int main() {
-    esconderCursor(); // Esconde o cursor piscante do Windows
-    
-    menuInicial();    // <--- ADICIONADO: Chama o menu antes de tudo
-    
-    iniciar();        // Inicia as variaveis do seu codigo
+    esconderCursor(); 
+    menuInicial();    
+    iniciar();
 
     while (1) {
         desenharTudo();
         lerEntrada();
-        
+        //Sleep(30); adicione essa linha se o cpu estiver sobrecarregado mas sem ela mto menos delay
     }
 
     return 0;
